@@ -1,62 +1,79 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody,CardTitle } from 'reactstrap';
-class Dishdetail extends Component{
-    constructor(props){
-        super(props)
+import{Card, CardImg,CardImgOverlay,CardText,CardBody,CardTitle}from 'reactstrap';
+class Dishdetail extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            
+            dish:this.props.dish
+            
+        };
+    }
+    renderDish(dish){
+       
+          return (
+            <div > 
         
-    }
-//   renderDish(this.props.wassup){
 
-    renderComms(){
-        const Comms= this.props.wassup.comments.map(com =>{
+            <Card>
+               <CardImg width='100%' object src={dish.image} alt={dish.name} />
+                <CardBody>
+                       <CardTitle>{dish.name} 
+                        </CardTitle>
+                        <CardText>{dish.description}</CardText>
+                   </CardBody>          
+                   
+            </Card>
+            </div> 
+          );
+        
+    }   
+    renderComments(comments){
+
+        if (comments == null) {
+            return (<div></div>)
+        }
+        const com = comments.map(comment => {
+       
             return (
-                <div>
-                    <div>
-                        <h6>{com.comment}</h6>
-                    </div>
-                    {/* <br></br> */}
-                    <div>
-                        <h6>-- {com.author},{com.date}</h6>
-                    </div>
-                    <br></br>
-                </div>
+             <div >
+                <li key={comment.id}>
+                    <p>{comment.comment}</p>
+                    <p>-- {comment.author}
+                   
+                   
+                    </p>
+                </li>
+             </div > 
             )
-        })
-        return Comms
+        });
+        return (
+            <div >
+                <h4> Comments </h4>
+                <ul className='list-unstyled'>
+                    {com}
+                </ul>
 
-    }
-    renderDish(){
-        return(
-            <div>
-                <CardTitle>{this.props.wassup.name}</CardTitle>
-                <CardText>{this.props.wassup.description}</CardText>
             </div>
         )
-
-    }
+        
+      
+  }   
     render() {
-            return(
-                <div className="row">
-                  <div  className="col-12 col-md-5 m-1">
-                    <Card>
-                        <CardImg top src={this.props.wassup.image} alt={this.props.wassup.name} />
-                        <CardBody>
-                            {this.renderDish()}
-                        </CardBody>
-                    </Card>
-                  </div>
-                  <div className="col-12 col-md-5 m-1">
-                      <h4>Comments</h4>
-                      {/* <h6>{this.props.wassup.comments[0].comment}</h6> */}
-                      {this.renderComms()}
+       
+       return (
+        <div className="container">
+            <div className="row">
+                <div className="col-12 col-md-5 m-1" >
+                    {this.renderDish(this.state.dish)}
+                </div> 
+                <div className="col-12 col-md-5 m-1" >
+                    {this.renderComments(this.state.dish.comments)}
+                </div> 
+            </div>
 
-                  </div>  
-                </div>
-                
+        </div>
             );
-            
-        }
-
-}
-
-export default Dishdetail
+    }     
+}        
+export default Dishdetail;
