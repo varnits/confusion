@@ -7,7 +7,7 @@ export const DISHES = [
       label:'Hot',
       price:'4.99',
       description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.' ,              
-      comments:[{author:'daasa, Dec 03-2011',comment:'dsaasasassaas'},{author:'daasa, Dec 03-2011',comment:'dsaasasassaas'}]
+      comments:[{author:'daasa',comment:'dsaasasasaas',date: '1998-01-19',id:1},{author:'daasa2',comment:'dsaasasassaas',date: '1992-01-22',id:2}]
    },
    {
       id: 1,
@@ -16,7 +16,9 @@ export const DISHES = [
       category: 'appetizer',
       label:'',
       price:'1.99',
-      description:'Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce'                        },
+      description:'Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce'  ,        
+      comments:[{author:'daasa1',comment:'dsaasasasaas',date: '1998-01-19',id:1},{author:'daasa1',comment:'dsaasasassaas',date: '1992-01-22',id:2}]
+   },              
    {
       id: 2,
       name:'Vadonut',

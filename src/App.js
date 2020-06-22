@@ -1,21 +1,10 @@
 import React , {Component}from 'react';
-import logo from './logo.svg';
 import {Navbar, NavbarBrand} from 'reactstrap';
 import './App.css';
-import { render } from '@testing-library/react';
-import Menu from './components/MenuComponent.js';
-import Dishdetails from './components/DishdetailComponent.js';
-
-import {DISHES} from './shared/dishes.js';
+import Main from './components/MainComponent.js';
 
 class  App extends Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-    sk:"kahaan bhai",
-    dishes:DISHES
-    };
-  }
+  
 render(){ 
   return (
     <div >
@@ -27,9 +16,9 @@ render(){
       
       <div>
 
-      { this.state.sj}
+     
       </div>
-      <Menu dishes={this.state.dishes} />
+      <Main />
     </div>
   );
 }
